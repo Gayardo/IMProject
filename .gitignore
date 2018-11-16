@@ -1,0 +1,22 @@
+# Youtube
+data/youtube/streams/
+data/youtube/rtim/pre_process/
+
+# LiveJournal
+data/livejournal/streams/
+data/livejournal/rtim/pre_process/
+
+# Twitter
+data/twitter/streams/
+data/twitter/rtim/pre_process/
+
+# Orkut
+data/orkut/streams
+data/orkut/rtim/pre_process
+
+# DBLP
+data/dblp/streams
+data/orkut/rtim/pre_process
+
+
+src/*.o
