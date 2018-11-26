@@ -2,7 +2,7 @@
 #include <stdio.h>
 using namespace std;
 
-//visiblement, la méthode TRACE sert à afficher les messages qui effectuent le suivi de l'execution d'une application.
+//visiblement, la mï¿½thode TRACE sert ï¿½ afficher les messages qui effectuent le suivi de l'execution d'une application.
 
 //Constructeur de la classe Graphe
 Graph::Graph(string folder, string graph_file): folder(folder),graph_file(graph_file)
@@ -21,10 +21,10 @@ void Graph::Afficher()
 }
 void Graph::readNM()
 {
-    // c_str() pour supprimer les esapces après la fin du mot
+    // c_str() pour supprimer les esapces aprï¿½s la fin du mot
     ifstream fichier((folder + "/attribute.txt").c_str());
 
-    // On verifie que le fichier a été trouvé
+    // On verifie que le fichier a ï¿½tï¿½ trouvï¿½
      if(fichier)
     {
         string s;
@@ -32,7 +32,7 @@ void Graph::readNM()
         // On lit le fichier ligne par ligne
         while(fichier >> s)
         {
-            //On verifie les deux premiers caractères de la ligne
+            //On verifie les deux premiers caractï¿½res de la ligne
             if(s.substr(0,2)== "n=")
             {
                 // atoi sert a convertir en Int
@@ -56,7 +56,7 @@ void Graph::readNM()
 
 void Graph::addEdge(int a, int b, double p)
 {
-    //push_back permet d'ajouter un element à la fin du vecteur.
+    //push_back permet d'ajouter un element ï¿½ la fin du vecteur.
     probT[b].push_back(p);
     gT[b].push_back(a);
     inDeg[b]++;
@@ -68,7 +68,7 @@ void Graph::readGraph()
 
     if(fic)
     {
-            cout << "graphe à lire trouvé"<< endl;
+            cout << "graphe ï¿½ lire trouvï¿½"<< endl;
             fclose(fic);
     }
     else

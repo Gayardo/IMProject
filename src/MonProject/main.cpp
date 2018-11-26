@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "graph.h"
+#include "Graph.h"
 
 using namespace std;
     void menu(){
