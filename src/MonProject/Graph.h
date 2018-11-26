@@ -19,7 +19,7 @@ class Graph
         int m;
         // the size of the seed set for influence maximization
         int k;
-        // nombre d'arretes connectés a un sommet ????
+        // nombre d'arretes connectï¿½s a un sommet ????
         vector<int> inDeg;
         // ???
         vector <vector <int>> gT;
@@ -31,7 +31,7 @@ class Graph
         string folder;
         // fichier contenant le graph
         string graph_file;
-        // vecteur de probabilités
+        // vecteur de probabilitï¿½s
         // Nous traitons ici uniquement les valeurs discretes
         vector <vector<double>> probT;
         //
@@ -54,4 +54,4 @@ class Graph
 };
 
 
-#endif // DEF_GRAPH
+#endif DEF_GRAPH
