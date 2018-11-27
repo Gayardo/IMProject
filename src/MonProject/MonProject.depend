@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1542661521 source:c:\users\gayardo\documents\monproject\main.cpp
+1543253435 source:c:\users\gayardo\documents\monproject\main.cpp
 	<iostream>
 	<fstream>
 	"graph.h"
+	"InfGraph.h"
 
 1542660853 c:\users\gayardo\documents\monproject\graph.h
 	<vector>
@@ -11,7 +12,19 @@
 	<fstream>
 	<stdio.h>
 
-1542661361 source:c:\users\gayardo\documents\monproject\graph.cpp
+1543249992 source:c:\users\gayardo\documents\monproject\graph.cpp
 	"Graph.h"
 	<stdio.h>
+
+1543254389 c:\users\gayardo\documents\monproject\infgraph.h
+	<vector>
+	<string>
+	<iostream>
+	<fstream>
+	<stdio.h>
+	"Graph.h"
+
+1543326683 source:c:\users\gayardo\documents\monproject\infgraph.cpp
+	"InfGraph.h"
+	"Graph.h"
 

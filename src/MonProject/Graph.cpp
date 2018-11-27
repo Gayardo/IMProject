@@ -1,5 +1,8 @@
 #include "Graph.h"
 #include <stdio.h>
+//#define TRACE_LINE(...) { ___debug( #__VA_ARGS__,  __VA_ARGS__,cerr); cerr<<"                    \033[100D";  }
+//#define TRACE_LINE(...) ;
+
 using namespace std;
 
 //visiblement, la méthode TRACE sert à afficher les messages qui effectuent le suivi de l'execution d'une application.
@@ -9,6 +12,19 @@ Graph::Graph(string folder, string graph_file): folder(folder),graph_file(graph_
 {
     // lecture de la valeur de n et de m depuis le fichier attribute.txt
     readNM();
+
+    // initialisation des vecteurs du graphe
+    //boucle pour chaque noeud
+    for(int i=0; i<n; i++)
+    {
+        gT.push_back(vector<int>());
+        hasnode.push_back(false);
+        probT.push_back(vector<double>());
+        inDeg.push_back(0);
+    }
+
+    //lecture du graph
+    readGraph();
 }
 // methode permettant de choisir le modele de diffusion
 void Graph::setInfuModel(InfluModel modele)
@@ -17,7 +33,7 @@ void Graph::setInfuModel(InfluModel modele)
 }
 void Graph::Afficher()
 {
-    cout << "L'info voulue : " << n <<endl;
+    cout << "L'info voulue : " <<  m <<endl;
 }
 void Graph::readNM()
 {
@@ -68,7 +84,42 @@ void Graph::readGraph()
 
     if(fic)
     {
-            cout << "graphe à lire trouvé"<< endl;
+            //??
+            int readCnt=0;
+
+            // on parcourt le fichier ligne par ligne
+            // le fichier a exactement le meme nomnre de lignes que le graphe a d'arretes
+            for(int i=0; i<m; i++)
+            {
+                readCnt++;
+                // noeud de départ et neoud d'arrivée
+                int a,b;
+                // probabilité ???
+                double p;
+                int c=fscanf(fic,"%d%d%lf",&a,&b,&p);
+                // trois valeurs doivent etre récupérées pour chaque arrete, si ce n'est pas le cas,
+                // il y'a une erreur
+                if(c!= 3)
+                {
+                    cout << "Le i: " << i << endl;
+                }
+
+                // le numéro du noeud ne peut pas etre supérieur au nombre total de noeuds
+                if(a>=n || b>=n)
+                {
+                    cout << "erreur" <<endl;
+                }
+                 //TRACE_LINE(a, b);
+                 //mettre le noeud de départ en existant
+                 hasnode[a]=true;
+                 //mettre le noeud d'arrivée en existant
+                 hasnode[b]=true;
+
+                 // ajout de l'arrete du noeud a vers le b avec la probabilité p
+                  addEdge(a,b,p);
+
+            }
+
             fclose(fic);
     }
     else

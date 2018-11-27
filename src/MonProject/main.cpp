@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include "graph.h"
+#include "InfGraph.h"
 
 using namespace std;
     void menu(){
@@ -62,15 +63,13 @@ int main()
 {
 
     //menu();
-
     //lectureFichier("graph_ic.inf");
-
-
-    Graph firstGraph("nethept","graph_ic.inf");
+    //Graph firstGraph("nethept","graph_ic.inf");
+    //Graph firstGraph("nethept","graph_cont.inf");
+    //Graph firstGraph("nethept","graph_lt.inf");
     //firstGraph.setInfuModel(Graph::LT);
-
-   // firstGraph.readNM();
-    //firstGraph.Afficher();
-    firstGraph.readGraph();
+    InfGraph g("nethept","graph_ic.inf",2);
+    // firstGraph.readNM();
+    g.afficher();
     return 0;
 }
