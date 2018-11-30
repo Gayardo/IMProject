@@ -5,6 +5,8 @@
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
+#include "SFMT-master/SFMT.h"
+#include "head.h"
 using namespace std;
 // a graph represents a social network with a node set V and an edge set E
 class Graph
@@ -19,10 +21,10 @@ class Graph
         int m;
         // the size of the seed set for influence maximization
         int k;
-        // nombre d'arretes connectï¿½s a un sommet ????
+        // nombre d'arretes connectés a un sommet ????
         vector<int> inDeg;
         // ???
-        vector <vector <int>> gT;
+        vector <vector <int> > gT;
         // definition de l'enumeration pour les trois types de modeles de diffusion
         enum InfluModel{IC,LT,CONT};
         // le modele de diffusion du graphe
@@ -31,9 +33,9 @@ class Graph
         string folder;
         // fichier contenant le graph
         string graph_file;
-        // vecteur de probabilitï¿½s
+        // vecteur de probabilités
         // Nous traitons ici uniquement les valeurs discretes
-        vector <vector<double>> probT;
+        vector <vector<double> > probT;
         //
         vector <bool> hasnode;
         // prototypes
@@ -42,6 +44,14 @@ class Graph
         void Afficher();
         void addEdge(int a, int b, double p);
         void readGraph();
+
+
+
+
+
+
+
+
 
 };
 
