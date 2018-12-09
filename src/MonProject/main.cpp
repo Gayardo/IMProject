@@ -1,9 +1,14 @@
 #include <iostream>
 #include <fstream>
-#include "graph.h"
+#include "Graph.h"
 #include "InfGraph.h"
+#include "head.h"
+#include "Imm.h"
 
 using namespace std;
+
+
+
     void menu(){
 
     int choixModel(0);
@@ -22,7 +27,7 @@ using namespace std;
     cout << "Inserez la valeur de T :" <<endl;
     cin >> T;
 
-    cout << "Inserez la valeur de k :" <<endl;
+    cout << "Inserez la valeur de k (taille du seed set) :" <<endl;
     cin >> k;
 
     cout << " Resume : \n modele : " << choixModel << "\n epsilone : " << epsilone <<"\n k : "<< k << "\n T : " << T << endl;
@@ -42,34 +47,32 @@ using namespace std;
 
 
     }
-    void lectureFichier(string nomFichier)
-    {
-
-    ifstream fichier("nethept/"+nomFichier,ios::in);
-
-    if(fichier)
-    {
-        fichier.close();
-
-    }
-    else
-    {
-        cout << "Impossible d'ouvrir le fichier " << endl;
-    }
-
-
-    }
+   
 int main()
 {
+    Argument arg;
+    // taille du seedSet
+    arg.k=2;
+    arg.dataset="nethept";
+    arg.model="IC";
+    arg.epsilon=3.0;
+    arg.T=2.3;
 
     //menu();
     //lectureFichier("graph_ic.inf");
     //Graph firstGraph("nethept","graph_ic.inf");
+    //firstGraph.Afficher();
     //Graph firstGraph("nethept","graph_cont.inf");
     //Graph firstGraph("nethept","graph_lt.inf");
     //firstGraph.setInfuModel(Graph::LT);
-    InfGraph g("nethept","graph_ic.inf",2);
-    // firstGraph.readNM();
-    g.afficher();
+    InfGraph g("nethept","graph_ic.inf");
+    Imm::InfluenceMaximize(g,arg);
+
+    //firstGraph.readNM();
+    //g.afficher();
+
+    cout << "salur" << endl;
+   
+
     return 0;
 }

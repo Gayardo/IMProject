@@ -2,10 +2,14 @@
 #define DEF_INFGRAPH
 #include <vector>
 #include <string>
+#include <queue>
+#include <set>
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
 #include "Graph.h"
+#include "head.h"
+#include "rrset.h"
 using namespace std;
 class InfGraph: public Graph
 {
@@ -15,14 +19,21 @@ private:
 
 
 public:
-    vector<vector<int>> hyperG;
-    vector<vector<int>> hyperGT;
-    int x;
-    InfGraph(string folder, string graph_file, int x);
+	//
+    vector<vector<int> > hyperG;
+    vector<vector<int> > hyperGT;
+    sfmt_t sfmtSeed;
+    // ensemble de noeuds de départ 
+    set<int> seedSet;
+    deque<int> q;
+
+    //constructeur de la classe infgraph
+    InfGraph(string folder, string graph_file);
     void afficher();
     void init_hyper_graph();
-
-
+    void build_hyper_graph();
+    void build_seedset(int k);
+    double influenceHyperGraph();
 
 };
 

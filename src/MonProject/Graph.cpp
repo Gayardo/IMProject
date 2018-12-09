@@ -108,7 +108,9 @@ void Graph::readGraph()
                 if(a>=n || b>=n)
                 {
                     cout << "erreur" <<endl;
+
                 }
+                 cout << i << endl;
                  //TRACE_LINE(a, b);
                  //mettre le noeud de départ en existant
                  hasnode[a]=true;
