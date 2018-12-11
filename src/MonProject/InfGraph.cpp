@@ -65,9 +65,35 @@ void InfGraph::build_seedset(int k)
   }
 }
 
-void InfGraph::build_hyper_graph()
+// Le parametre R en entrée est le lambda prime calculé avec l'equation 9 de la sampling phase
+void InfGraph::build_hyper_graph(int64 R, const Argument & arg)
 {
+  // On verifie que le lambda prime n'est pas trop grand
+  //Value of INT_MAX is +2147483647
+  if( R > INT_MAX ){
+            cout<<"Error:R too large"<<endl;
+            exit(1);
+  }
 
+  // Est ce normal que ce soit a zero au début ? 
+  int prevSize = hyperGT.size();
+  //cout <<"Valeur de prevSize : " <<prevSize << endl;
+
+  // On rajoute de la taille a l'hyper graphe au fur et a mesure que le lambda prime augmente
+  while((int) hyperGT.size() <= R)
+  {
+  
+    hyperGT.push_back(vector<int>());
+
+  }
+  //cout << "size" <<hyperGT.size() << endl;
+
+  vector<int> random_number;
+  for(int i=0; i<R; i++)
+  {
+    random_number.push_back(sfmt_genrand_uint32(&sfmtSeed) % n);
+  }
+  cout << "ciaooo" << endl;
 }
 
 // On calcule l'influence une fois qu'on a le seed set et l'hyper graph

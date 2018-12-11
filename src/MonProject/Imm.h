@@ -4,24 +4,32 @@
 #include <cmath>
 #include "InfGraph.h"
 #include "Graph.h"
+typedef long long int64;
 
 using namespace std;
 
 
 
-// structure constituée des parametres d'entrée de IMM
-class Argument{
-public:
-	//the size of the seed set for influence maximization
-    int k;
-    // le dossier contenant le graph
-    string dataset;
-    // ??
-    double epsilon;
-    // le model de diffusion
-    string model;
-    // ??
-    double T;
+// à utiliser pour l'equation 9 présente dans la step 1 : Sampling Phase
+class Math{
+    public:
+        // log de 2
+        static double log2(int n){
+            return log(n) / log(2);
+        }
+        // log de n parmi k
+        static double logcnk(int n, int k) {
+            double ans = 0;
+            for (int i = n - k + 1; i <= n; i++)
+            {
+                ans += log(i);
+            }
+            for (int i = 1; i <= k; i++)
+            {
+                ans -= log(i);
+            }
+            return ans;
+        }
 };
 
 class Imm

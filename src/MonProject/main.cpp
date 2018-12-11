@@ -52,10 +52,10 @@ int main()
 {
     Argument arg;
     // taille du seedSet
-    arg.k=2;
+    arg.k=50;
     arg.dataset="nethept";
     arg.model="IC";
-    arg.epsilon=3.0;
+    arg.epsilon=0.5;
     arg.T=2.3;
 
     //menu();
@@ -66,12 +66,15 @@ int main()
     //Graph firstGraph("nethept","graph_lt.inf");
     //firstGraph.setInfuModel(Graph::LT);
     InfGraph g("nethept","graph_ic.inf");
+
     Imm::InfluenceMaximize(g,arg);
+
 
     //firstGraph.readNM();
     //g.afficher();
 
     cout << "salur" << endl;
+  
    
 
     return 0;
